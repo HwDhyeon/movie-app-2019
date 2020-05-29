@@ -6,13 +6,13 @@ import "./Home.css";
 class Home extends React.Component {
   state = {
     isLoading: true,
-    movies: [],
+    movies: []
   };
   getMovies = async () => {
     const {
       data: {
-        data: { movies },
-      },
+        data: { movies }
+      }
     } = await axios.get(
       "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
     );
@@ -27,11 +27,11 @@ class Home extends React.Component {
       <section className="container">
         {isLoading ? (
           <div className="loader">
-            <span className="loader_text">Loading...</span>
+            <span className="loader__text">Loading...</span>
           </div>
         ) : (
           <div className="movies">
-            {movies.map((movie) => (
+            {movies.map(movie => (
               <Movie
                 key={movie.id}
                 id={movie.id}
